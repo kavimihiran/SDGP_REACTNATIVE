@@ -164,4 +164,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SoliType;
+export { SoliType };
