@@ -4,7 +4,8 @@ import { TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 
 const Recommend = () => {
-  const SELECTION = ["soilType1", "soilType2", "soilType3", "soilType4"];
+  const SELECTION = ["soilType1", "soilType2"];
+  const SELECTION2 = ["Most Suitable Crop", "Compost"];
   const SELECTION1 = [
     { src: require("../assets/logo.jpg") },
     { src: require("../assets/logo1.jpg") },
@@ -12,21 +13,27 @@ const Recommend = () => {
   const List = SELECTION.map((item) => {
     return <Text style={styles.text}>{item}</Text>;
   });
+  const List1 = SELECTION2.map((item) => {
+    return <Text style={styles.text1}>{item}</Text>;
+  });
 
   const Image1 = () => {
     var counter = -1;
+    var counter1 = -1;
     return SELECTION1.map((items) => {
       const { src } = items;
       counter++;
+      counter1++;
       return (
         <View style={styles.box}>
           <View style={styles.inner}>
-            {List[counter]}
+            {List1[counter1]}
             <Image
               style={styles.first}
               resizeMode="contain"
               source={src}
             ></Image>
+            {List[counter]}
           </View>
         </View>
       );
@@ -41,13 +48,12 @@ const Recommend = () => {
 const styles = StyleSheet.create({
   container: {
     marginRight: 160,
-    bottom: 250,
-    width: "80%",
-    height: "50%",
+    width: "140%",
+    height: "90%",
     padding: 5,
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap: "wrap",
-    marginRight: 15,
+    marginLeft: 425,
   },
   box: {
     width: "50%",
@@ -65,15 +71,23 @@ const styles = StyleSheet.create({
     color: "white",
     fontFamily: "sans-serif-condensed",
     fontSize: 23,
-    bottom: 15,
+    top: 4,
+  },
+  text1: {
+    color: "black",
+    fontFamily: "sans-serif-condensed",
+    fontSize: 23,
+    fontWeight: "bold",
+    bottom: 8,
   },
   image: {
     borderRadius: 350,
     width: "35%",
   },
   first: {
-    width: "90%",
+    width: "100%",
     height: "60%",
+    top: 5,
     borderRadius: 40,
     flexDirection: "row",
     flexWrap: "wrap",
